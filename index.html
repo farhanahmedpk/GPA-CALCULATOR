@@ -815,13 +815,14 @@
                 }
                 
                 const creditHours = parseFloat(document.getElementById(`creditHours-${id}`).value);
-                const marks = parseFloat(document.getElementById(`marks-${id}`).value);
-                
+                const marks = Math.round(parseFloat(document.getElementById(`marks-${id}`).value));
+
                 if (!isNaN(creditHours) && !isNaN(marks)) {
                     const result = marksToGPA(marks);
                     totalCreditHours += creditHours;
                     totalGradePoints += creditHours * result.gpa;
                 }
+
             });
             
             if (!allValid) {
@@ -898,4 +899,5 @@
     </script>
 </body>
 </html>
+
 
